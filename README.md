@@ -28,11 +28,22 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ sudo find /dirname -type f -user username` searches for files in chosen directory owned by user username 
 
+### File Comparisons and Statistics  
+
+`$ diff -c filename1 filename2` command contextually compares the two files line by line
+
+`$ diff /dirname1 /dirname2` compars directories one and two for differences
+
+`$ comm filename1 filename2` compares files in sorted order
+
+$ cmp file1 file2 -- returns the first diff between files
+$ stat filename -- gets the statistics for file 
+$ lsattr filename -- check if file is immutable 
+$ sudo chattr +i start.sh -- adds immutable attribute. for removal, use -i
+
 ### File and Directory Permissions 
 
-
-----------FILE AND DIR PERMISSIONS----------
-drwxr-xr-x --for directories 
+Directory permissions take the form `drwxr-xr-x` --for directories 
 -rwxr-xr-x -- for files  
 $ sudo su - username -- become the user 
 $ id (username) -- view user permissions 
@@ -63,15 +74,7 @@ $ cat /etc 2> /dev/null -- sends error messages 2 to dev/null black hole
 
 
 $ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
-$ cat filename.csv | more -- displays info on screen with more flexibility
-
-$ diff -c file1 file2 -- compares 2 fil or dir line by line with context
-$ diff ../dir/ ../dir2/ -- dir 1 and dir 2 compared 
-$ comm file1 file2 -- compares files. must be sorted
-$ cmp file1 file2 -- returns the first diff between files
-$ stat filename -- gets the statistics for file 
-$ lsattr filename -- check if file is immutable 
-$ sudo chattr +i start.sh -- adds immutable attribute. for removal, use -i 
+ 
 
 
 
