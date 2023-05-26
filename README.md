@@ -5,11 +5,36 @@ Study Notes for Linux Foundation Certified Sys Administrator
 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
 
-`$ vim filename.txt` lets you edit the file. You can also use `$ nano filename.txt` to do so. 
+`$ vim filename.txt` lets you edit the file. You can also use `$ nano filename.txt` to do so 
 
 `$ cat filename.txt` outputs contents of file in the terminal
 
-You can also use `$ more filename.txt` which advances one screen at a time or `$ less filename.txt` which can be more consise if used with `$ less filename.txt | grep filter`.
+You can also use `$ more filename.txt` which advances one screen at a time or `$ less filename.txt` which can be more consise if used with `$ less filename.txt | grep filter`
+
+`$ cp file1 newfile2` duplicates a files contents
+
+`$ mv filename /file/path/filename` can move files from one directory to another
+
+`$ mkdir /dir/path/dirname` makes a new directory in specified location
+
+$ rm -r filename.txt -- deletes all files with warning 
+$ rm -rf dir1/fil1 -- removes and deletes dir without warning 
+$ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of fileto archive
+$ tar -tf archname.tar.gz -- list what is in the archived files
+$ tar -tf myapp.tar.gz > app.list -- redirect archive output into a file
+
+$ ls -l /etc | less -- lists etc dir with more info 
+$ cat file1.csv | sort | head -10 -- cat out file 1 sort it and output only the first 10 lines 
+$ ls -l /etc > etclist.txt -- list out etc dir and output into file etclist. can overwrite any existing file
+$ ls -l /etc >> etclist.txt -- creates or appends file if already exists
+$ cat /etc 2> /dev/null -- sends error messages 2 to dev/null black hole
+
+$ sudo find /(dirname) -iname "filename" -- searches entire dir for fileby name 
+$ sudo find /var -type f -name "*.html" -- example finds any html file type in var dir
+$ sudo find /etc -type f -user root -- finds files in dir which belong to user root
+$ which python -- finds where programme python is stored 
+$ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
+
 
 $ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
 $ cat filename.csv | more -- displays info on screen with more flexibility
@@ -77,27 +102,6 @@ $ lsattr filename -- check if file is immutable
 $ sudo chattr +i start.sh -- adds immutable attribute. for removal, use -i 
 
 
-----------BASIC FILE MANIPULATION----------
-$ cp filename1.txt newfilename2.txt -- copies a file from one place to another 
-$ mv filename.txt /newdir/newfilename.txt -- moves a file from one place to another
-$ mkdir /path/to/dir -- makes a new directory
-$ rm -r filename.txt -- deletes all files with warning 
-$ rm -rf dir1/fil1 -- removes and deletes dir without warning 
-$ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of fileto archive
-$ tar -tf archname.tar.gz -- list what is in the archived files
-$ tar -tf myapp.tar.gz > app.list -- redirect archive output into a file
-
-$ ls -l /etc | less -- lists etc dir with more info 
-$ cat file1.csv | sort | head -10 -- cat out file 1 sort it and output only the first 10 lines 
-$ ls -l /etc > etclist.txt -- list out etc dir and output into file etclist. can overwrite any existing file
-$ ls -l /etc >> etclist.txt -- creates or appends file if already exists
-$ cat /etc 2> /dev/null -- sends error messages 2 to dev/null black hole
-
-$ sudo find /(dirname) -iname "filename" -- searches entire dir for fileby name 
-$ sudo find /var -type f -name "*.html" -- example finds any html file type in var dir
-$ sudo find /etc -type f -user root -- finds files in dir which belong to user root
-$ which python -- finds where programme python is stored 
-$ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
 
 ----------FILE AND DIR PERMISSIONS----------
 drwxr-xr-x --for directories 
