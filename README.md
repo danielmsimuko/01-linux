@@ -1,15 +1,19 @@
 # Linux Foundation Certified System Administrator 
-These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have learned and come across. At a more advanced level, these commands become longer, more complex but more powerful. These notes will be expanded upon as my knowledge bases continues to grow. 
+These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have come across. At a more advanced level, these commands become longer, more complex but more powerful.
+
+These notes will be expanded upon as my knowledge bases continues to grow so I hope they provide some value to you. 
 
 See if you know what this command does: 
 
-`$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" filename.txt`
+`$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" filename.txt`  
 
 ## Basics
-These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear ` or even `$ exit ` are already familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
+These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear ` and `$ exit ` are already familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
 
 ### Editing files + Directories 
-`$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
+`$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in enter `$ pwd`
+
+To go to the home directory ` $ cd ~`
 
 `$ vim filename.txt` lets you edit the file. You can also use `$ nano filename.txt` to do so 
 
@@ -45,18 +49,23 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ stat filename` gives you information of the file including size, access date and read write permissions
 
-`$ lsattr filename ` lists the files attributes 
-`
-$ sudo chattr [-pRVf] filename ` adds file attributes to filename with several option attribues[o
+`$ lsattr filename` lists the files attributes
+
+`$ sudo chattr [-pRVf] filename` adds file attributes to filename with several optional 
 
 ### File and Directory Permissions 
 
-Directory permissions take the form `drwxr-xr-x` --for directories 
--rwxr-xr-x -- for files  
-$ sudo su - username -- become the user 
+`$ sudo su` - username -- become the user 
 $ id (username) -- view user permissions 
-$ sudo chown (username) (filename) -- change a files ownership
-$ sudo chown : (grpname) (filename) -- changes a files group ownership
+
+Directory permissions take the form `drwxr-xr-x` and file permissions take the form `-rwxr-xr-x`
+
+`$ ls -l ` lists the contents of a directory including its file permissions with `ll -l` offering more information including hidden files
+
+`$ sudo chown username filename ` changes the ownership of a filename to username
+
+`$ sudo chown groupname:filename` changes the group ownership of a file to group
+
 $ sudo chmod 644 (filename) -- changes file permissions numerically 
 $ sudo chown -R usename1:groupname1 /home/deleteduser1 -- changing ownership recursively
 $ sudo chown username:grpname -- changes ownership of group 
@@ -122,21 +131,6 @@ $ sudo visudo -- edit the sudoers
 $ sudo cat /etc/sudooers -- shows people and groups who can sudo
 $ for i in name1 name2 ... ; do sudo useradd -m $i ; done -- add mult-users
 $ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done -- adding multi user to multi-grp
-
-----------BASICS----------
-$ cat filename.txt  -- output file in terminal
-$ more filename.txt -- output file in terminal 
-$ less filename.txt -- advance output one screen at time. less can find names
-$ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
-$ cat filename.csv | more -- displays info on screen with more flexibility
-$ touch filename.txt -- create an empty file 
-$ diff -c file1 file2 -- compares 2 fil or dir line by line with context
-$ diff ../dir/ ../dir2/ -- dir 1 and dir 2 compared 
-$ comm file1 file2 -- compares files. must be sorted
-$ cmp file1 file2 -- returns the first diff between files
-$ stat filename -- gets the statistics for file 
-$ lsattr filename -- check if file is immutable 
-$ sudo chattr +i start.sh -- adds immutable attribute. for removal, use -i 
 
 
 
