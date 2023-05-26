@@ -1,7 +1,28 @@
 # LFCSA
-Study Notes for Linux Foundation Certified Sys Administrator
+These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have learned and come across. At a more advanced level, these commands become longer, more complex but more powerful. 
 
-## Basics of File Manipulation
+See if you know what this command does: 
+
+`$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" filename.txt`
+
+## Basics
+
+The basic Linux commands are as follows: 
+
+| Command | Description |
+|--------:|---------------|
+| cd |               |
+|  clear |               |
+|     3|               |
+`$ cd /path/directory `
+`$ clear `
+`$ exit `
+`$ grep` 
+`$ ls` 
+`$ tree`
+
+
+
 
 ### Editing files + Directories 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
