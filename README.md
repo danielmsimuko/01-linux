@@ -3,12 +3,17 @@ Study Notes for Linux Foundation Certified Sys Administrator
 
 ### Essential Commands
 
-`$ cat filename.txt`  -- output file in terminal
-$ more filename.txt -- output file in terminal 
-$ less filename.txt -- advance output one screen at time. less can find names
+`$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
+
+`$ vim filename.txt` lets you edit the file. You can also use `$ nano filename.txt` to do so. 
+
+`$ cat filename.txt` outputs contents of file in the terminal
+
+You can also use `$ more filename.txt` which advances one screen at a time or `$ less filename.txt` which can be more consise if used with `$ less filename.txt | grep filter`.
+
 $ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
 $ cat filename.csv | more -- displays info on screen with more flexibility
-$ touch filename.txt -- create an empty file 
+
 $ diff -c file1 file2 -- compares 2 fil or dir line by line with context
 $ diff ../dir/ ../dir2/ -- dir 1 and dir 2 compared 
 $ comm file1 file2 -- compares files. must be sorted
