@@ -1,8 +1,9 @@
 # LFCSA
 Study Notes for Linux Foundation Certified Sys Administrator
 
-### Basics of File Manipulation
+## Basics of File Manipulation
 
+### Editing files + Directories 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
 
 `$ vim filename.txt` lets you edit the file. You can also use `$ nano filename.txt` to do so 
@@ -25,10 +26,24 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ sudo find /dirname -type f -name "*.type"` searches for all files ending with .type in your chosen directory. This can be .txt .log .html and more
 
-`$ sudo find /dirname -type f -user username` searches for files in a director which are owned by user username 
+`$ sudo find /dirname -type f -user username` searches for files in chosen directory owned by user username 
 
-$ which python -- finds where programme python is stored 
-$ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
+### File and Directory Permissions 
+
+
+----------FILE AND DIR PERMISSIONS----------
+drwxr-xr-x --for directories 
+-rwxr-xr-x -- for files  
+$ sudo su - username -- become the user 
+$ id (username) -- view user permissions 
+$ sudo chown (username) (filename) -- change a files ownership
+$ sudo chown : (grpname) (filename) -- changes a files group ownership
+$ sudo chmod 644 (filename) -- changes file permissions numerically 
+$ sudo chown -R usename1:groupname1 /home/deleteduser1 -- changing ownership recursively
+$ sudo chown username:grpname -- changes ownership of group 
+$ find /dirnam/appnam -name "d*" -ok chmod 660 {} \; -- find app in dir, with name beginning d, change permissions and execute with confirmation
+$ find /home -nouser -nogroup -exec chown username:grpname {} \; -- find directory not owned by user or group and changes it to specified user/grp
+
 
 ### F 
 
@@ -114,18 +129,7 @@ $ sudo chattr +i start.sh -- adds immutable attribute. for removal, use -i
 
 
 
-----------FILE AND DIR PERMISSIONS----------
-drwxr-xr-x --for directories 
--rwxr-xr-x -- for files  
-$ sudo su - username -- become the user 
-$ id (username) -- view user permissions 
-$ sudo chown (username) (filename) -- change a files ownership
-$ sudo chown : (grpname) (filename) -- changes a files group ownership
-$ sudo chmod 644 (filename) -- changes file permissions numerically 
-$ sudo chown -R usename1:groupname1 /home/deleteduser1 -- changing ownership recursively
-$ sudo chown username:grpname -- changes ownership of group 
-$ find /dirnam/appnam -name "d*" -ok chmod 660 {} \; -- find app in dir, with name beginning d, change permissions and execute with confirmation
-$ find /home -nouser -nogroup -exec chown username:grpname {} \; -- find directory not owned by user or group and changes it to specified user/grp
+
 
 ----------PROCESSES + TASK SHEDULING-----------
 $ top/htop -- displays all processes
@@ -235,7 +239,8 @@ $ dig www.linuxacademy.com -- resolves dns name
 
 
 
-
+$ which python -- finds where programme python is stored 
+$ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
 
 
 
