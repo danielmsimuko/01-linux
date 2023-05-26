@@ -1,7 +1,7 @@
 # LFCSA
 Study Notes for Linux Foundation Certified Sys Administrator
 
-### Essential Commands
+### Basics of File Manipulation
 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
 
@@ -21,14 +21,21 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ rm -rf /path/to/dir` deletes a directory without warning 
 
+`$ sudo find /dirname -name "filename" finds` searches for a file by name in your chosen directory
 
-### File Manipulation 
-
-
-
+`$ sudo find /dirname -type f -name "*.html"` searches for all files ending with .html in your chosen directory
 
 
-$ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of fileto archive
+$ sudo find /var -type f -name "*.html" -- example finds any html file type in var dir
+$ sudo find /etc -type f -user root -- finds files in dir which belong to user root
+$ which python -- finds where programme python is stored 
+$ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
+
+### F 
+
+### G
+
+$ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of file to archive
 $ tar -tf archname.tar.gz -- list what is in the archived files
 $ tar -tf myapp.tar.gz > app.list -- redirect archive output into a file
 
@@ -38,11 +45,7 @@ $ ls -l /etc > etclist.txt -- list out etc dir and output into file etclist. can
 $ ls -l /etc >> etclist.txt -- creates or appends file if already exists
 $ cat /etc 2> /dev/null -- sends error messages 2 to dev/null black hole
 
-$ sudo find /(dirname) -iname "filename" -- searches entire dir for fileby name 
-$ sudo find /var -type f -name "*.html" -- example finds any html file type in var dir
-$ sudo find /etc -type f -user root -- finds files in dir which belong to user root
-$ which python -- finds where programme python is stored 
-$ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
+
 
 
 $ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
