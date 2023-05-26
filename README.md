@@ -17,8 +17,17 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ mkdir /dir/path/dirname` makes a new directory in specified location
 
-$ rm -r filename.txt -- deletes all files with warning 
-$ rm -rf dir1/fil1 -- removes and deletes dir without warning 
+`$ rm /path/to/dir/filename` removes the file from the specified directory
+
+`$ rm -rf /path/to/dir` deletes a directory without warning 
+
+
+### File Manipulation 
+
+
+
+
+
 $ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of fileto archive
 $ tar -tf archname.tar.gz -- list what is in the archived files
 $ tar -tf myapp.tar.gz > app.list -- redirect archive output into a file
