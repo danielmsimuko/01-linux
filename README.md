@@ -1,14 +1,12 @@
 # Linux Foundation Certified System Administrator 
-
-These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have learned and come across. At a more advanced level, these commands become longer, more complex but more powerful. 
+These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have learned and come across. At a more advanced level, these commands become longer, more complex but more powerful. These notes will be expanded upon as my knowledge bases continues to grow. 
 
 See if you know what this command does: 
 
 `$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" filename.txt`
 
 ## Basics
-
-These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear ` or even `$ exit ` are familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
+These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear ` or even `$ exit ` are already familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
 
 ### Editing files + Directories 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
@@ -43,10 +41,13 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ comm filename1 filename2` compares files in sorted order
 
-$ cmp file1 file2 -- returns the first diff between files
-$ stat filename -- gets the statistics for file 
-$ lsattr filename -- check if file is immutable 
-$ sudo chattr +i start.sh -- adds immutable attribute. for removal, use -i
+`$ cmp filename1 filename2` simply returns the first difference it can find between files. Common to use for almost identical files
+
+`$ stat filename` gives you information of the file including size, access date and read write permissions
+
+`$ lsattr filename ` lists the files attributes 
+`
+$ sudo chattr [-pRVf] filename ` adds file attributes to filename with several option attribues[o
 
 ### File and Directory Permissions 
 
