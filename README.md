@@ -21,13 +21,12 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ rm -rf /path/to/dir` deletes a directory without warning 
 
-`$ sudo find /dirname -name "filename" finds` searches for a file by name in your chosen directory
+`$ sudo find /dirname -name "filename"` searches for a file by name in your chosen directory
 
-`$ sudo find /dirname -type f -name "*.html"` searches for all files ending with .html in your chosen directory
+`$ sudo find /dirname -type f -name "*.type"` searches for all files ending with .type in your chosen directory. This can be .txt .log .html and more
 
+`$ sudo find /dirname -type f -user username` searches for files in a director which are owned by user username 
 
-$ sudo find /var -type f -name "*.html" -- example finds any html file type in var dir
-$ sudo find /etc -type f -user root -- finds files in dir which belong to user root
 $ which python -- finds where programme python is stored 
 $ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
 
