@@ -1,4 +1,5 @@
-# LFCSA
+# Linux Foundation Certified System Administrator 
+
 These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have learned and come across. At a more advanced level, these commands become longer, more complex but more powerful. 
 
 See if you know what this command does: 
@@ -7,22 +8,7 @@ See if you know what this command does:
 
 ## Basics
 
-The basic Linux commands are as follows: 
-
-| Command | Description |
-|--------:|---------------|
-| cd |               |
-|  clear |               |
-|     3|               |
-`$ cd /path/directory `
-`$ clear `
-`$ exit `
-`$ grep` 
-`$ ls` 
-`$ tree`
-
-
-
+These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear ` or even `$ exit ` are familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
 
 ### Editing files + Directories 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in type `$ pwd`
