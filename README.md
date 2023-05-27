@@ -99,20 +99,33 @@ The bootloader is the hub of the operating system. Responsible for loading the k
 
 ### Kernel and Runtime
 
+$ vim /boot/grub/grub.cfg -- where the grub config is
+
+$ sudo update-grub -- updates the bootloader
+
+$ grub-mkconfig -o /boot/grub/grub.cfg -- updating grub in centos
+
 `$ sudo sysctl -a` checks the current parameter configurations for the operating system
 
-
-$ sysctl dev.cdrom.autclose -- returns dev parameter specs
-$ sudo sysctl -w dev.cdrom.autoclose=0 -- autoclose parameter changed
-$ cd /etc/sysctl.d/ -- contain master values for kernel parameters
-$ shutdown -P/-r/-H -- performs the poweroff, reboot or halt command to shutdown system 
-$ sudo shutdown -r now -- immediate reboot (replace now with mins  i.e +5)
-$ systemctl get-default -- finds the runlevel of machine for systemd
-$ uptime -- low long the system has been up 
 $ runlevel -- finds how long the current runlevel is for sysVinit
-$ vim /boot/grub/grub.cfg -- where the grub config is
-$ sudo update-grub -- updates the bootloader
-$ grub-mkconfig -o /boot/grub/grub.cfg -- updating grub in centos
+
+$ systemctl get-default -- finds the runlevel of machine for systemd
+
+$ uptime -- low long the system has been up 
+
+$ sysctl dev.cdrom.autclose -- returns dev parameter 
+
+$ sudo sysctl -w dev.cdrom.autoclose=0 -- autoclose parameter
+
+$ cd /etc/sysctl.d/ -- contain master values for kernel parameters
+
+$ shutdown -P/-r/-H -- performs the poweroff, reboot or halt command to shutdown system
+
+$ sudo shutdown -r now -- immediate reboot (replace now with mins  i.e +5)
+
+
+
+
 
 ----------UPDATING AND MANAGING SOFTWARE----------
 $ sudo apt/yum install -- installs a package  
