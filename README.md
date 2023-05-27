@@ -8,12 +8,12 @@ See if you know what this command does:
 `$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" filename.txt`  
 
 ## Basics
-These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear ` and `$ exit ` are already familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
+These notes assume you are already familiar with Linux and are comfortable enough to at least move between directories. Commands such as `$ cd /dirname` , `$ clear` and `$ exit` are already familiar to you. If not, it would be worth investing time into learning the essentials via the Linux Professional Institutes Essentials Course.
 
 ### Editing files + Directories 
 `$ touch filename.txt` creates a text file in the current working directory. To check which directory you are in enter `$ pwd`
 
-To go to the home directory ` $ cd ~`
+To go to the home directory `$ cd ~`
 
 `$ vim filename.txt` lets you edit the file. You can also use `$ nano filename.txt` to do so 
 
@@ -61,26 +61,25 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 Directory permissions take the form `drwxr-xr-x` and file permissions take the form `-rwxr-xr-x`
 
-`$ ls -l ` lists the contents of a directory including its file permissions with `ll -l` offering more information including hidden files
+`$ ls -l` lists the contents of a directory including its file permissions with `ll -l` offering more information including hidden files
 
 `$ sudo chown username filename ` changes the ownership of a filename to username
 
 `$ sudo chown groupname:filename` changes the group ownership of a file to group
 
-`$ sudo chmod 644 filename` changes file permissions numerically. NOTE: most common numerical permissions are 777, 755, 644 and 660
+`$ sudo chmod 644 filename` changes file permissions numerically -  NOTE: most common numerical permissions are 777,  755,  644 and 660
 
 `$ sudo chown -R usename1:groupname1 /home/deleteduser1` -- changing ownership recursively if assigning permissions to a deleted user
 
 `$ sudo chown username:grpname` changes ownership of group
 
-More complex solutions can then be found once more skill is gained such as:
+More complex problem solving can then be attained through layering commands together such as: 
 
 `$ find /dirnam/appnam -name "d*" -ok chmod 660 {} \;` which finds an application name beginning with letter d, within specified directory, changes the permissions to 660 and asks for confirmation. 
 
 `$ find /dirname -nouser -nogroup -exec chown username:grpname {} \;` finds files in directory not owned by any user OR any group and changes this to the specified user and group 
-### F 
 
-### G
+### Archiving Files 
 
 $ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of file to archive
 $ tar -tf archname.tar.gz -- list what is in the archived files
@@ -92,16 +91,20 @@ $ ls -l /etc > etclist.txt -- list out etc dir and output into file etclist. can
 $ ls -l /etc >> etclist.txt -- creates or appends file if already exists
 $ cat /etc 2> /dev/null -- sends error messages 2 to dev/null black hole
 
-
-
-
 $ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
- 
+
+## Linux Bootloader + Processes
+
+The bootloader is the hub of the operating system. Responsible for loading the kernel of the operating system into memory and then transferring control to it. Most common linux bootloader is GRUB2.
+
+### Kernel and Runtime
+
+`$ sudo sysctl -a` checks the current parameter configurations for the operating system
 
 
-
-
-----------BOOTING----------
+$ sysctl dev.cdrom.autclose -- returns dev parameter specs
+$ sudo sysctl -w dev.cdrom.autoclose=0 -- autoclose parameter changed
+$ cd /etc/sysctl.d/ -- contain master values for kernel parameters
 $ shutdown -P/-r/-H -- performs the poweroff, reboot or halt command to shutdown system 
 $ sudo shutdown -r now -- immediate reboot (replace now with mins  i.e +5)
 $ systemctl get-default -- finds the runlevel of machine for systemd
@@ -151,11 +154,7 @@ $ crontab -e -- edit your crontab
 -- */3 * * * * echo "Awake" >> /home/daniel/logs/system_awake.log -- runs every 3 mins, any h,dom,mon,dow logs awake in sys awake file
 $ less /var/log/syslog | grep -i cron -- for checking if cron is running
 
-----------SYSTEMS, KERNEL AND RUNTIME----------
-$ sudo sysctl -a -- current parameter configurations. returns every parameter configured on system
-$ sysctl dev.cdrom.autclose -- returns dev parameter specs
-$ sudo sysctl -w dev.cdrom.autoclose=0 -- autoclose parameter changed
-$ cd /etc/sysctl.d/ -- contain master values for kernel parameters
+
 
 ----------REGEX----------
 $ grep '^$ sudo' lcsa.txt -- searches every line that starts with $ sudo
