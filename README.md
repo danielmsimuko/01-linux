@@ -55,8 +55,9 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 ### File and Directory Permissions 
 
-`$ sudo su` - username -- become the user 
-$ id (username) -- view user permissions 
+`$ sudo su - username` allows you to log into machine as another user
+
+`$ id username`allows you to view user permissions
 
 Directory permissions take the form `drwxr-xr-x` and file permissions take the form `-rwxr-xr-x`
 
@@ -66,13 +67,17 @@ Directory permissions take the form `drwxr-xr-x` and file permissions take the f
 
 `$ sudo chown groupname:filename` changes the group ownership of a file to group
 
-$ sudo chmod 644 (filename) -- changes file permissions numerically 
-$ sudo chown -R usename1:groupname1 /home/deleteduser1 -- changing ownership recursively
-$ sudo chown username:grpname -- changes ownership of group 
-$ find /dirnam/appnam -name "d*" -ok chmod 660 {} \; -- find app in dir, with name beginning d, change permissions and execute with confirmation
-$ find /home -nouser -nogroup -exec chown username:grpname {} \; -- find directory not owned by user or group and changes it to specified user/grp
+`$ sudo chmod 644 filename` changes file permissions numerically. NOTE: most common numerical permissions are 777, 755, 644 and 660
 
+`$ sudo chown -R usename1:groupname1 /home/deleteduser1` -- changing ownership recursively if assigning permissions to a deleted user
 
+`$ sudo chown username:grpname` changes ownership of group
+
+More complex solutions can then be found once more skill is gained such as:
+
+`$ find /dirnam/appnam -name "d*" -ok chmod 660 {} \;` which finds an application name beginning with letter d, within specified directory, changes the permissions to 660 and asks for confirmation. 
+
+`$ find /dirname -nouser -nogroup -exec chown username:grpname {} \;` finds files in directory not owned by any user OR any group and changes this to the specified user and group 
 ### F 
 
 ### G
