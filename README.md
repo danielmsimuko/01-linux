@@ -119,7 +119,27 @@ The bootloader is the hub of the operating system. Responsible for loading the k
 
 `$ sudo shutdown -r now` does an immediate reboot (replace now with mins  i.e +5)
 
+### Processes and Task Sheduling 
 
+`$ top/htop` displays all processes currently running on machine 
+
+`$ ps -ef` shows all processes running on the machine 
+
+`$ ps aux --forest | grep cron` filters process to get cron information. Cron can be replaced with another filter
+
+`$ crontab -l` views the users crontabs for task sheduling 
+
+`$ crontab -e` allows user to edit the crontab
+
+Crontab works so that the digits represent the: `min (m), hour (h), day of mon (dom), month (mon), day of week (dow)`. Any woould be '*'
+
+A great example is the following sheduled task below: 
+
+`*/3 * * * * echo "Awake" >> /home/daniel/logs/system_awake.log` 
+
+This script rns every 3 mins, every/any hour, any day of month, month of year, day of week and logs the echo command "Awake" inside the /home directory and stored in the file system_log.awake. 
+
+`$ less /var/log/syslog | grep -i cron` outputs contents of syslog and checks for cron process
 ----------UPDATING AND MANAGING SOFTWARE----------
 $ sudo apt/yum install -- installs a package  
 $ sudo apt/yum remove -- removes a package 
@@ -145,20 +165,6 @@ $ sudo visudo -- edit the sudoers
 $ sudo cat /etc/sudooers -- shows people and groups who can sudo
 $ for i in name1 name2 ... ; do sudo useradd -m $i ; done -- add mult-users
 $ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done -- adding multi user to multi-grp
-
-
-
-
-
-----------PROCESSES + TASK SHEDULING-----------
-$ top/htop -- displays all processes
-$ ps -ef -- shows all processes running on the pc
-$ ps aux --forest | grep cron -- filters process to get cron information
-$ crontab -l -- view crontabs for task sheduling 
-$ crontab -e -- edit your crontab
-# min (m), hour (h), day of mon (dom), month (mon), day of week (dow), use '*' for 'any'
--- */3 * * * * echo "Awake" >> /home/daniel/logs/system_awake.log -- runs every 3 mins, any h,dom,mon,dow logs awake in sys awake file
-$ less /var/log/syslog | grep -i cron -- for checking if cron is running
 
 
 
