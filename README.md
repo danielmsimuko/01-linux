@@ -171,6 +171,8 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 
 `$ sudo apt/yum list packagename` checsk for a newer upgradeable version of package
 
+`$sudo which/whereis packagename` lets you find a package's install location on the machine with whereis offering more info
+
 ### Hardware 
 
 `$ lscpu` shows you all cpu and processor information including sockets, threads, cores and more
@@ -188,20 +190,26 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 ## User Management 
 
 ### Adding users 
-$ su - username -- login as someone else
-$ sudo useradd (name) -- adding a user to system
-$ sudo userdel (name) -- delete a user
-$ sudo passwd (name) -- give the user a password 
-$ sudo usermod -s /bin/bash (name) -- bin bash
-$ sudo mkhomedir_helper (name) -- creates home dir for user 
-$ sudo useradd -m (name) -- quicker way of adding user acc
-$ cat /etc/skel -- boilerplate user adding files 
-$ sudo groupadd (grp name) -- adds a new group
-$ sudo usermod -a -G (grpname) (username) -- adds a user to a group
-$ sudo visudo -- edit the sudoers 
-$ sudo cat /etc/sudooers -- shows people and groups who can sudo
-$ for i in name1 name2 ... ; do sudo useradd -m $i ; done -- add mult-users
-$ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done -- adding multi user to multi-grp
+
+`$ su - username` allows you to switch your user to another 
+
+`$ sudo useradd username` adding a user to system
+
+`$ sudo userdel username` deletes a user
+
+`$ sudo passwd username` assigns a user a password
+
+`$ sudo usermod -(#)` modifies a users characteristics using -m, -p, and more
+
+`$ sudo groupadd grpname` adds a new group
+
+`$ sudo usermod -a -G grpname username` adds a user to a group
+
+`$ sudo visudo ` lets you edit the sudoers file which grands sudo permissions to users
+
+`$ for i in name1 name2 ... ; do sudo useradd -m $i ; done` is a for loop to add more than one user at a time
+
+`$ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done` adds multiple users to user to multi-group
 
 ### Basic Security
 
@@ -211,8 +219,8 @@ $ su (username) -- change user to another
 $ cat /etc/sudoers -- list of users who have sudo commands 
 $ cat /etc/group | grep daniel -- finds groups user daniel is in
 $ cat /etc/passwd | grep root -- finds info on root. UID=0
-# cat /etc/shadow -- can find hash of user passwords
-# groups daniel -- shows you all groups user daniel is in
+$ cat /etc/shadow -- can find hash of user passwords
+$ groups daniel -- shows you all groups user daniel is in
 $ getent passwd daniel -- determines users home shell
 
 ## Networking and Troubleshooting
@@ -267,14 +275,11 @@ $ grep '\<[tT]he\>' lcsa.txt -- returns every instance of word 'the'
 $ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" lcsa.txt -- finds email address in file i.e x@gmail.com
 
 ## Randomers
-$ ssh cloud_user@pub.lic.ip.adr -- ssh into a linux machine
-$ sudo systemctl start/stop (service) -- starts stops service like mysql
+
 $ cd /temp -- for when you need to stage files in a temporary folder 
-$ sudo apt install httpd -- shows a list of webservers you can install 
-$ sudo apt install apache2 -- installs apache2 webserver
+
 $ sudo systemctl start/stop/status apache2  -- starts/stops/status apache2 server status
-$ code/vim /var/www/html/index.html -- where the file can be found
-$ uptime -- checks how long the server has been up for. 
+$ code/vim /var/www/html/index.html -- where the file can be found. 
 $ which python -- finds where programme python is stored 
 $ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
 
