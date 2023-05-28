@@ -155,14 +155,21 @@ This script rns every 3 mins, every/any hour, any day of month, month of year, d
 
 ### Adding and removing packages 
 
-$ sudo apt/yum install -- installs a package  
-$ sudo apt/yum remove -- removes a package 
-$ sudo apt/yum purge -- removes packgae with configuration 
-$ sudo apt/yum update/upgrade -- updates and upgrades package 
-$ sudo apt/yum autoremove -- removes unwanted packages 
-$ sudo apt/yum show -- shows packages details
-$ sudo apt/yum list -- upgradeable
-$ sudo apt/yum httpd -- searches for httpd package
+When installing packages, ubuntu/debian based packages use the apt command whilst redhat based systems use the yum package manager. 
+
+`$ sudo apt/yum install packagename` installs the required package
+
+`$ sudo apt/yum remove packagename` removes the desired package
+
+`$ sudo apt/yum purge packagename` removes packgae with its configuration settings
+
+`$ sudo apt/yum update/upgrade packagename` updates or upgrades package
+
+`$ sudo apt/yum autoremove packagename` removes unwanted/unused packages on a system or those surplus to requirements
+
+`$ sudo apt/yum show packagename` shows packages details incuding version, origin, download size, description and more
+
+`$ sudo apt/yum list packagename` checsk for a newer upgradeable version of package
 
 ### Hardware 
 ----------HARDWARE----------
