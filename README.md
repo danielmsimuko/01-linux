@@ -172,13 +172,18 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 `$ sudo apt/yum list packagename` checsk for a newer upgradeable version of package
 
 ### Hardware 
-----------HARDWARE----------
---memtest86 -- can be completed from the GRUB menu 
---NEVER CHECK MOUNTED FILE SYSTEM
-$ df -h -- check all mounted filesystems
-$ sudo umount /file/path/data -- mount point has been removed 
-$ sudo  fsck /file/path -- check bios
-$ sudo tune2fs -c 0 /file/path -- check shedule and reboot
+
+`$ lscpu` shows you all cpu and processor information including sockets, threads, cores and more
+
+ `$ lshw` lists hardware components connected to the system like memory, usb controllers and network adapters
+ 
+`$ df -h` checks all mounted filesystems
+
+`$ mount | column -t` shows you mounted and unmounted filesystems in nice format
+
+`$ free -m` checks how much free ram you have currently
+
+`$ sudo dmidecode -t processor/bios/memory` lets you access info from the SMBIOS
 
 ## User Management 
 
