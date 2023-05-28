@@ -140,6 +140,19 @@ A great example is the following sheduled task below:
 This script rns every 3 mins, every/any hour, any day of month, month of year, day of week and logs the echo command "Awake" inside the /home directory and stored in the file system_log.awake. 
 
 `$ less /var/log/syslog | grep -i cron` outputs contents of syslog and checks for cron process
+
+`$ ps aux | grep -v grep | wc -l` return the total number of running processes
+
+`$ cat /proc/loadavg` retuns the current system load
+
+`$ ps -U (username) | wc -l` returns number of processes running by/for (username)
+
+`$ ps aux | grep (processname)` returns process info
+
+`$ ps aux | grep (processname) | grep -v grep` returns a value for the PID
+
+`$ cat /proc/(pid_value)/status | grep Threads` returns number of threads a process is using. Can be helpful in determining what processes are using up computering resources
+
 ----------UPDATING AND MANAGING SOFTWARE----------
 $ sudo apt/yum install -- installs a package  
 $ sudo apt/yum remove -- removes a package 
@@ -226,12 +239,7 @@ $ uptime -- checks how long the server has been up for.
 
 ####STUFF////
 
-$ ps aux | grep -v grep | wc -l -- return number of running processes 
-$ cat /proc/loadavg -- retuns current system load
-$ ps -U (username) | wc -l -- returns number of processes running as (username)
-$ ps aux | grep (processname) -- returns process info 
-$ ps aux | grep (processname) | grep -v grep -- returns a value for the PID
-$ cat /proc/(pid_value)/status | grep Threads  -- returns number of threads a process is using
+
 
 -----2. VIEWING SERVICE LOGS
 
