@@ -151,7 +151,10 @@ This script rns every 3 mins, every/any hour, any day of month, month of year, d
 
 `$ cat /proc/(pid_value)/status | grep Threads` returns number of threads a process is using. Can be helpful in determining what processes are using up computering resources
 
-----------UPDATING AND MANAGING SOFTWARE----------
+## Managing Hardware and Software 
+
+### Adding and removing packages 
+
 $ sudo apt/yum install -- installs a package  
 $ sudo apt/yum remove -- removes a package 
 $ sudo apt/yum purge -- removes packgae with configuration 
@@ -161,7 +164,18 @@ $ sudo apt/yum show -- shows packages details
 $ sudo apt/yum list -- upgradeable
 $ sudo apt/yum httpd -- searches for httpd package
 
-----------ADDING USERS + GROUPS----------
+### Hardware 
+----------HARDWARE----------
+--memtest86 -- can be completed from the GRUB menu 
+--NEVER CHECK MOUNTED FILE SYSTEM
+$ df -h -- check all mounted filesystems
+$ sudo umount /file/path/data -- mount point has been removed 
+$ sudo  fsck /file/path -- check bios
+$ sudo tune2fs -c 0 /file/path -- check shedule and reboot
+
+## User Management 
+
+### Adding users 
 $ su - username -- login as someone else
 $ sudo useradd (name) -- adding a user to system
 $ sudo userdel (name) -- delete a user
@@ -177,14 +191,20 @@ $ sudo cat /etc/sudooers -- shows people and groups who can sudo
 $ for i in name1 name2 ... ; do sudo useradd -m $i ; done -- add mult-users
 $ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done -- adding multi user to multi-grp
 
+### Basic Security
 
+michael@ubuntu:-$ -- standard user permissions 
+root@ubuntu:-# -- root user acess 
+$ su (username) -- change user to another  
+$ cat /etc/sudoers -- list of users who have sudo commands 
+$ cat /etc/group | grep daniel -- finds groups user daniel is in
+$ cat /etc/passwd | grep root -- finds info on root. UID=0
+# cat /etc/shadow -- can find hash of user passwords
+# groups daniel -- shows you all groups user daniel is in
+$ getent passwd daniel -- determines users home shell
 
-----------REGEX----------
-$ grep '^$ sudo' lcsa.txt -- searches every line that starts with $ sudo
-$ grep '\<[tT]he\>' lcsa.txt -- returns every instance of word 'the'
-$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" lcsa.txt -- finds email address in file i.e x@gmail.com
+## Networking and Troubleshooting
 
-----------THE NETWORKING STUFF----------
 $ ip route show -- shows us the routing table and gateway server
 $ ip addr show -- ip address and also mac address 
 $ ifconfig -- displays status of current and active interfaces
@@ -198,26 +218,15 @@ $ dig www.website.com -- performs dns lookup with more info
 $ ping -c1 www.acloudguru.com -- test connectivity to website 
 $ curl -i www.acloudguru.com -- tests connectivity to website 
 
-----------HARDWARE----------
---memtest86 -- can be completed from the GRUB menu 
---NEVER CHECK MOUNTED FILE SYSTEM
-$ df -h -- check all mounted filesystems
-$ sudo umount /file/path/data -- mount point has been removed 
-$ sudo  fsck /file/path -- check bios
-$ sudo tune2fs -c 0 /file/path -- check shedule and reboot
-  
-----------BASIC SECURITY----------
-michael@ubuntu:-$ -- standard user permissions 
-root@ubuntu:-# -- root user acess 
-$ su (username) -- change user to another  
-$ cat /etc/sudoers -- list of users who have sudo commands 
-$ cat /etc/group | grep daniel -- finds groups user daniel is in
-$ cat /etc/passwd | grep root -- finds info on root. UID=0
-# cat /etc/shadow -- can find hash of user passwords
-# groups daniel -- shows you all groups user daniel is in
-$ getent passwd daniel -- determines users home shell
+$ ip addr show -- lists the ip addresses
+$ ping -c 1 google.com -- pings a network address
+$cat /etc/hosts -- info about all ip connections.
+$ cat /etc/resolv.conf -- gets the host nameserver
+$ dig www.linuxacademy.com -- resolves dns name
 
-----------LOGGING + SCRIPTING----------
+
+## Logging and Scripting 
+
 $ export PATH=$PATH:/path/to/scriptsdir
 $ sudo less /var/log/(logname) | grep (keyword) -- log info from file and filters for keywords
 $ sudo less /var/log/syslog -- system info
@@ -225,7 +234,27 @@ $ sudo less /var/log/auth.log -- authentication log, esp when users >1
 $ (if statement structure) -- if {a = b}; then echo True else echo False fi
 $ (for loop structure) -- for x in 1 2 3 do echo "some info" done
 
-----------BONUS----------
+$ curl -I localhost --
+$ sudo cat /var/log/httpd/access_log | grep -E "^(PRIV-IP)" | wc -l --
+$ curl http://(PUBLIC-IP)/index.html -- 
+$ sudo tail -f /var/log/httpd/access_log -- see who accessed the sever
+$ curl http://(PUBLIC_IP)/server.html 
+$ cat /var/log/syslog -- application logging for deb based systems
+
+$ cat /var/log/auth.log  -- authentication logs
+$ cat /var/log/secure -- for redhat based systems
+$ cat /var/log/boot.log -- sytem boot logs 
+$ cat /var/log/cron.log -- cron jobs log 
+$ cat /var/log/kern.log -- kernel logs
+$ cat /var/log/faillog.log -- authentication failure log
+
+## Regular Expression 
+
+$ grep '^$ sudo' lcsa.txt -- searches every line that starts with $ sudo
+$ grep '\<[tT]he\>' lcsa.txt -- returns every instance of word 'the'
+$ grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-za-z]{2,6}\b" lcsa.txt -- finds email address in file i.e x@gmail.com
+
+## Randomers
 $ ssh cloud_user@pub.lic.ip.adr -- ssh into a linux machine
 $ sudo systemctl start/stop (service) -- starts stops service like mysql
 $ cd /temp -- for when you need to stage files in a temporary folder 
@@ -234,42 +263,8 @@ $ sudo apt install apache2 -- installs apache2 webserver
 $ sudo systemctl start/stop/status apache2  -- starts/stops/status apache2 server status
 $ code/vim /var/www/html/index.html -- where the file can be found
 $ uptime -- checks how long the server has been up for. 
-
-####STUFF////
-
-
-
------2. VIEWING SERVICE LOGS
-
-$ curl -I localhost --
-$ sudo cat /var/log/httpd/access_log | grep -E "^(PRIV-IP)" | wc -l --
-$ curl http://(PUBLIC-IP)/index.html -- 
-$ sudo tail -f /var/log/httpd/access_log -- see who accessed the sever
-$ curl http://(PUBLIC_IP)/server.html --
-
- 
-DATA STORAGE
-$ cat /var/log/syslog -- application logging for deb based systems
-$ cat /var/log/auth.log  -- authentication logs
-$ cat /var/log/secure -- for redhat based systems
-$ cat /var/log/boot.log -- sytem boot logs 
-$ cat /var/log/cron.log -- cron jobs log 
-$ cat /var/log/kern.log -- kernel logs
-$ cat /var/log/faillog.log -- authentication failure log
-
-COMPUTER NETWORKING
-$ ip addr show -- lists the ip addresses
-$ ping -c 1 google.com -- pings a network address
-$cat /etc/hosts -- info about all ip connections.
-$ cat /etc/resolv.conf -- gets the host nameserver
-$ dig www.linuxacademy.com -- resolves dns name
-
-
-
 $ which python -- finds where programme python is stored 
 $ whereis apache2 | tr " " '\n' -- finds apache2 and pipes + translates info into readable lines 
-
-
 
 
 
