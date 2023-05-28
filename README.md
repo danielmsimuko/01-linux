@@ -81,17 +81,15 @@ More complex problem solving can then be attained through layering commands toge
 
 ### Archiving Files 
 
-$ tar -cvzf archname.tar.gz /dir/filetoarch -- creates an archive of file to archive
-$ tar -tf archname.tar.gz -- list what is in the archived files
-$ tar -tf myapp.tar.gz > app.list -- redirect archive output into a file
+`$ tar -cvzf archname.tar.gz /dir/filename` creates an archive of filename
 
-$ ls -l /etc | less -- lists etc dir with more info 
-$ cat file1.csv | sort | head -10 -- cat out file 1 sort it and output only the first 10 lines 
-$ ls -l /etc > etclist.txt -- list out etc dir and output into file etclist. can overwrite any existing file
-$ ls -l /etc >> etclist.txt -- creates or appends file if already exists
-$ cat /etc 2> /dev/null -- sends error messages 2 to dev/null black hole
+`$ tar -tf archname.tar.gz` list what is in the archived files
 
-$ sudo less +F /var/log/syslog -- less continues in bground + updates in real time 
+`$ tar -tf myapp.tar.gz > app.list`redirects archive output into a file which can then be catted or filtered using grep
+
+`$ ls -l /etc > etclist.txt` list out etc dir and output into file etclist but can be overwritten
+
+`$ ls -l /etc >> etclist.txt` creates or appends file if already exists
 
 ## Linux Bootloader + Processes
 
