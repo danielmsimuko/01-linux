@@ -211,15 +211,10 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 
 `$ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done` adds multiple users to user to multi-group
 
-### Basic Security
-
-michael@ubuntu:-$ -- standard user permissions 
-root@ubuntu:-# -- root user acess 
-$ su (username) -- change user to another  
-$ cat /etc/sudoers -- list of users who have sudo commands 
-$ cat /etc/group | grep daniel -- finds groups user daniel is in
-$ cat /etc/passwd | grep root -- finds info on root. UID=0
-$ cat /etc/shadow -- can find hash of user passwords
+`$ sudo cat /etc/sudoers` lists which users have sudo commands 
+$ sudo cat /etc/group | grep daniel -- finds groups user daniel is in
+$ sudo cat /etc/passwd | grep root -- finds info on root. UID=0
+$ sudo cat /etc/shadow -- can find hash of user passwords
 $ groups daniel -- shows you all groups user daniel is in
 $ getent passwd daniel -- determines users home shell
 
