@@ -37,6 +37,16 @@ You can also use `$ more filename.txt` which advances one screen at a time or `$
 
 `$ sudo find /dirname -type f -user username` searches for files in chosen directory owned by user username 
 
+`$ scp -rp /dirname/dirname username@ip.addr:/dirname` sends a copy of directory from one server to another server with recursive r and preservative p
+
+`$ rsync -aP /dirname/dirname username@ip.addrrp:/dirname` pushes a copy of directory from local onto another machine
+
+When you know the contents of second machine and would like to pull from a server you can use: 
+
+`$ scp -rp username@ip.addr:/dirname /dirname/dirname` pulls a copy of directory from server to local machine recursive r and preservative p attr
+
+`$ rsync -aP username@ip.addrrp:/dirname /dirname/dirname` pushes a copy of directory from server onto local machine 
+
 ### File Comparisons and Statistics  
 
 `$ diff -c filename1 filename2` command contextually compares the two files line by line
