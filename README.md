@@ -212,33 +212,32 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 `$ for i in grp1 grp2 ... ; do sudo usermod -a -G $i name1 name2 ...; done` adds multiple users to user to multi-group
 
 `$ sudo cat /etc/sudoers` lists which users have sudo commands 
-$ sudo cat /etc/group | grep daniel -- finds groups user daniel is in
-$ sudo cat /etc/passwd | grep root -- finds info on root. UID=0
-$ sudo cat /etc/shadow -- can find hash of user passwords
-$ groups daniel -- shows you all groups user daniel is in
-$ getent passwd daniel -- determines users home shell
+
+`$ sudo cat /etc/shadow` finds the hash string of a users password 
 
 ## Networking and Troubleshooting
 
-$ ip route show -- shows us the routing table and gateway server
-$ ip addr show -- ip address and also mac address 
-$ ifconfig -- displays status of current and active interfaces
-$ netstat -- lists active internet connections 
-$ nmcli -- network manager for linux
-$ cat /etc/services | grep 22 -- finds all services using port 22
-$ cat /etc/services | grep 53 -- finds all services using port 53
-$ cat /etc/resolv.conf | grep nameserver -- finds dns server
-$ host www.website.com -- performs dns lookup
-$ dig www.website.com -- performs dns lookup with more info 
-$ ping -c1 www.acloudguru.com -- test connectivity to website 
-$ curl -i www.acloudguru.com -- tests connectivity to website 
+`$ ip route show` shows us the routing table and gateway server
 
-$ ip addr show -- lists the ip addresses
-$ ping -c 1 google.com -- pings a network address
-$cat /etc/hosts -- info about all ip connections.
-$ cat /etc/resolv.conf -- gets the host nameserver
-$ dig www.linuxacademy.com -- resolves dns name
+`$ ip addr show` shows us a more information on ip address and procides mac addresses 
 
+`$ ifconfig` displays status of current and active interfaces like netmask, broadcast address and more
+
+`$ netstat` prints network connections and routing tables
+
+`$ sudo apt/yum install metwork-manager` installs a network manager for linux
+
+`$ cat /etc/services | grep portnumber` finds all services using designated port number
+
+`$ cat /etc/resolv.conf | grep nameserver` gets you the nameserver ip address
+
+`$ dig/host www.websitename..com` performs dns lookup
+
+`$ ping www.websitename..com` tests the connectivity of a website
+
+`$ cat /etc/hosts` gets information about current ip connections
+
+`$ dig www.linuxacademy.com` is a tool for looking up DNS name servers
 
 ## Logging and Scripting 
 
