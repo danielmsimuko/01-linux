@@ -191,8 +191,13 @@ AppArmour is a kernal enhancement usd to confine applications to a select set of
 
 `$ cat /etc/apparmor.d/lxc-containers` is the place where you would set up apparmor controls 
 
+### Packet Filtering 
 
+`$ sudo iptables -l` views current configurations 
 
+`$ sudo iptables --flush` refreshes current config so admin can start afresh
+
+`$ sudo iptables -A INPUT --protocol icmp --in-interface ens5 -J REJECT/DROP` lets you implement packet filter to prevent access to machine 
 
 ## Managing Hardware and Software 
 
