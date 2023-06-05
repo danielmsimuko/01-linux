@@ -1,5 +1,5 @@
-# Linux Foundation Certified System Administrator 
-These are my study notes for the Linux Foundation Certified System Administrator Exam. They comprise of the bulk of the commands I have come across. At a more advanced level, these commands become longer, more complex but more powerful.
+# Linux System Administrator 
+These are my study notes for the Linux Certified System Administrator/Engineer exam. They comprise of the bulk of the commands I have come across. At a more advanced level, these commands become longer, more complex but more powerful.
 
 These notes will be expanded upon as my knowledge bases continues to grow so I hope they provide some value to you. 
 
