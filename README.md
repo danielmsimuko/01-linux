@@ -239,9 +239,11 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 
 ### Adding users 
 
-`$ su - username` allows you to switch your user to another 
+`sudo adduser username` will create an account, home directory and prompt you for a password. This is a newer feature and isnt available on all linux distros
 
-`$ sudo useradd username` adding a user to system
+`$ su - username` allows you to switch to another user
+
+`$ sudo useradd -m -s /bin/bash username` adding a user to system while setting the home directory + default shell  
 
 `$ sudo userdel username` deletes a user
 
@@ -262,6 +264,25 @@ When installing packages, ubuntu/debian based packages use the apt command whils
 `$ sudo cat /etc/sudoers` lists which users have sudo commands 
 
 `$ sudo cat /etc/shadow` finds the hash string of a users password 
+
+### Environment Variables 
+
+You can have three types of environment variables: `local`, `user` + `sysem` variables
+
+> Local 
+variables relating to the current session only 
+
+> User
+variables that would be related to the user only
+
+> System Wide
+System wide would be available to all users and on the system at all times
+
+`$ env` prints out the current variable 
+
+`$ echo MY_VAR` creates a variable 
+
+`unset MY_VAR` removes that variable 
 
 ## Networking and Troubleshooting
 
