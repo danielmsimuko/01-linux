@@ -12,11 +12,15 @@
 
 `$ sudo passwd username` assigns a user a password
 
+`# echo Temp@$$ | passwd --stdin username` assigns a temp password for user which they will need to change at next logon
+
+`chage -d0 username` forces a password change at next logon
+
 `$ sudo usermod -(#)` modifies a users characteristics using -m, -p, and more
 
 `$ sudo groupadd grpname` adds a new group
 
-`$ sudo chgrp grpname filename`
+`$ sudo chgrp grpname filename` changes the group ownership of a file 
 
 `$ sudo usermod -a -G grpname username` adds a user to a group
 
