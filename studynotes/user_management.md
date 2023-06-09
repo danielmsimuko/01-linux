@@ -16,6 +16,8 @@
 
 `$ sudo groupadd grpname` adds a new group
 
+`$ sudo chgrp grpname filename`
+
 `$ sudo usermod -a -G grpname username` adds a user to a group
 
 `$ sudo visudo ` lets you edit the sudoers file which grands sudo permissions to users
@@ -32,13 +34,8 @@
 
 You can have three types of environment variables: `local`, `user` + `sysem` variables
 
-> Local 
-variables relating to the current session only 
+Local variables relate to the users current session only, user variables to the user in every session and system wide for all users in every session 
 
-> User
-variables that would be related to the user only
-
-> System Wide
 System wide would be available to all users and on the system at all times
 
 `$ env` prints out the current variable 
@@ -46,3 +43,37 @@ System wide would be available to all users and on the system at all times
 `$ echo MY_VAR` creates a variable 
 
 `unset MY_VAR` removes that variable 
+
+### Configure user limits 
+
+There are 2 types of files for linux administrators to perform : Hard and Soft 
+
+`$ /etc/security/limits.conf` is the main file that can achieve this. 
+
+Inside the file is the parameters that can determine limits to users
+
+`domain` which can be user, group name, etc
+
+`type` whcih can have either soft or hard for the limit type
+
+`item` which is the item to limit, can be a file, process, fsize etc...
+
+`value` the value you are setting for the limit 
+
+To view which limits are defined for the system `$ ulimit -a`
+
+### User Priviledges
+
+To manage remote access `$ vim /etc/security/access.conf`
+
+File is arranged as `permission : users : origins` where +/- adds and removes access, users can contain users/groups or all and lastly origins which is where users can connect from which could be a hostname, domain name, ipaddress...
+
+
+### Configure PAM - Pluggable Authentication Modules 
+
+Allows you to configure and reconfigure how authentication takes place 
+
+`$ vim /etc/pam.conf` file can be used to configure on local machine or series of files in `$ cd /etc/pam.d` directory
+
+Three columns required for pam entry: `module` for authentication account, password or session 
+
