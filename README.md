@@ -1,4 +1,5 @@
-# Linux System Administrator 
+# 01 - Linux System Administrator 
+
 These are my study notes for the Linux Certified System Administrator/Engineer exam. They comprise of the bulk of the commands I have come across. At a more advanced level, these commands become longer, more complex but more powerful and I will also remove the more basic commands
 
 These notes will be expanded upon as my knowledge bases continues to grow so I hope they provide some value to you. 
